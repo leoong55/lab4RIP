@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Заказы{% endblock %}
+
+{% block body %}
+    <ul class="list-group">
+        {% for order in orders %}
+            <li class="list-group-item">{% include 'inc.html' with verb="TEST " only %}<a href="{% url 'order_url' order.id %}">{{ order.title }}</a></li>
+        {% empty %}
+            <li class="list-group-item disabled">empty list</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
